@@ -35,7 +35,7 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutCompany
-        fields = ('projects', 'date_of_creation', 'awards')
+        fields = ('id', 'projects', 'date_of_creation', 'awards')
 
 
 class ClientsSerializer(serializers.ModelSerializer):
@@ -47,7 +47,7 @@ class ClientsSerializer(serializers.ModelSerializer):
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Services
-        fields = ('image', 'title')
+        fields = ('id', 'image', 'title')
 
 
 class MessageSerializer(serializers.Serializer):

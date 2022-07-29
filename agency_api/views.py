@@ -76,6 +76,12 @@ class ServiceListAPIView(generics.ListAPIView):
 class SendMessageView(generics.GenericAPIView):
     serializer_class = MessageSerializer
 
+    def __int__(self, name, email, phone, project):
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.project = project
+
     def post(self, request):
         serializer = MessageSerializer(request.data)
         name = serializer.data['name']
@@ -85,4 +91,4 @@ class SendMessageView(generics.GenericAPIView):
         message = "*ЗАЯВКА С САЙТА* :" + "\n" + "*Name*: " + str(name) + "\n" + "*Phone* : " + str(
             phone) + '\n' + '*email*: ' + str(email) + '\n' + '*Project*: ' + str(project)
         send_message(message)
-        return Response('Ok')
+        return Response({'status': 'OK'})
