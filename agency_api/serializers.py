@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Project, Images, Company, Clients
+from .models import Project, Images, AboutCompany, Clients, Services
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -34,14 +34,20 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
 
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Company
+        model = AboutCompany
         fields = ('projects', 'date_of_creation', 'awards')
 
 
 class ClientsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clients
-        fields = ('__all__')
+        fields = '__all__'
+
+
+class ServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Services
+        fields = ('image', 'title')
 
 
 class MessageSerializer(serializers.Serializer):

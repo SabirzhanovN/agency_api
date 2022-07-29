@@ -31,7 +31,7 @@ class Images(models.Model):
         verbose_name_plural = 'Images'
 
 
-class Company(models.Model):
+class AboutCompany(models.Model):
     projects = models.CharField(max_length=150, db_index=True)
     date_of_creation = models.DateField()
     awards = models.DecimalField(max_digits=10, decimal_places=2)
@@ -41,9 +41,24 @@ class Company(models.Model):
 
 
 class Clients(models.Model):
-    client = models.URLField()
+    icon = models.ImageField(upload_to="icons", blank=True, null=True)
+    client_partner = models.URLField()
+
+    date_for_sort = models.DateTimeField()
 
     class Meta:
-        ordering = ('id',)
+        ordering = ('-date_for_sort',)
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
+
+
+class Services(models.Model):
+    image = models.ImageField(upload_to='services', blank=True, null=True)
+    title = models.CharField(max_length=200, db_index=True)
+
+    class Meta:
+        verbose_name = 'service'
+        verbose_name_plural = 'services'
+
+    def __str__(self):
+        return self.title
