@@ -1,6 +1,5 @@
 # Project stacks
-In this project used python programming language, database postgres and ubuntu os, so you have to install python and postgres.
-
+In this project we use PostgreSQL database, OS Linux and Python programming language.
 ## Database
 It is best to use postgres tool to build database:
 
