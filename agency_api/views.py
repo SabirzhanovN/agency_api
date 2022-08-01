@@ -54,7 +54,7 @@ class CompanyListAPIView(generics.ListAPIView):
 
 
 class ClientsListAPIView(generics.ListAPIView):
-    queryset = Clients.objects.all().order_by('-date_for_sort')
+    queryset = Clients.objects.all().order_by('num_for_sort')
     serializer_class = ClientsSerializer
 
 

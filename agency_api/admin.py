@@ -22,8 +22,8 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Clients)
 class ClientsAdmin(admin.ModelAdmin):
-    list_display = ['icon', 'client_partner', 'date_for_sort']
-    list_editable = ['date_for_sort']
+    list_display = ['icon', 'client_partner', 'date_for_sort', 'num_for_sort']
+    list_editable = ['date_for_sort', 'num_for_sort']
 
 
 @admin.register(Services)

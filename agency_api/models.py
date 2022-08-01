@@ -46,8 +46,10 @@ class Clients(models.Model):
 
     date_for_sort = models.DateTimeField()
 
+    num_for_sort = models.IntegerField(unique=True)
+
     class Meta:
-        ordering = ('-date_for_sort',)
+        ordering = ('num_for_sort',) # change to "date_for sort for sorting with date"
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
 

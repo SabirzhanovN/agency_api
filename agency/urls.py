@@ -9,9 +9,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title='Shop api',
+        title='Agency api',
         default_version='v1',
-        description='For shop rest api',
+        description='For agency rest api',
     ),
     public=True,
 )
