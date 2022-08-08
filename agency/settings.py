@@ -15,6 +15,9 @@ from django.conf import global_settings
 from pathlib import Path
 import os
 
+import django_heroku
+import dj_database_url
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -31,7 +34,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -188,3 +191,5 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+django_heroku.settings(locals())
