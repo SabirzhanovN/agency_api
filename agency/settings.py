@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+import django.conf.locale
+from django.conf import global_settings
 
 from pathlib import Path
 import os
@@ -167,5 +169,23 @@ gettext = lambda s: s
 LANGUAGES = (
     ('ru', gettext('Russia')),
     ('en', gettext('English')),
-    # ('kgz', gettext('Kyrgyz')),
+    ('ky', gettext('Kyrgyz')),
+)
+EXTRA_LANG_INFO = {
+    'ky': {
+        'bidi': False,
+        'code': 'ky',
+        'name': 'Kyrgyz',
+        'name_local': u"Кыргызча",
+    },
+}
+
+
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
+global_settings.LANGUAGES = global_settings.LANGUAGES + [("ky", 'Кыргызча')]
+
+PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
