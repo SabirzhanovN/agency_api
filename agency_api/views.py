@@ -76,7 +76,7 @@ class ServiceListAPIView(generics.ListAPIView):
 class SendMessageView(generics.GenericAPIView):
     serializer_class = MessageSerializer
 
-    def __int__(self, name, email, phone, project):
+    def __init__(self, name, email, phone, project):
         self.name = name
         self.email = email
         self.phone = phone
