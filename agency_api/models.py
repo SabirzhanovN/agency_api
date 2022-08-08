@@ -15,6 +15,7 @@ class Project(models.Model):
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
         ordering = ('created',)
+        app_label = 'agency_api'
 
     def __str__(self):
         return self.title
@@ -61,6 +62,7 @@ class Services(models.Model):
     class Meta:
         verbose_name = 'service'
         verbose_name_plural = 'services'
+        app_label = 'agency_api'
 
     def __str__(self):
         return self.title

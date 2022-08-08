@@ -1,10 +1,13 @@
 from django.contrib import admin
 from .models import Project, Images, AboutCompany, Clients, Services
 
+from modeltranslation.admin import TranslationAdmin
+
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'image', 'created', 'description', 'site_url', 'instagram_url', 'title_url']
+class ProjectAdmin(TranslationAdmin):
+    list_display = ['title_en', 'title_ru', 'image', 'created', 'description_en', 'description_ru', 'site_url',
+                    'instagram_url', 'title_url']
     list_editable = ['created']
 
 
@@ -27,6 +30,6 @@ class ClientsAdmin(admin.ModelAdmin):
 
 
 @admin.register(Services)
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['image', 'title']
-    list_editable = ['title']
+class ServiceAdmin(TranslationAdmin):
+    list_display = ['image', 'title_en', 'title_ru']
+    list_editable = ['title_en', 'title_ru']

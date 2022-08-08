@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,6 +34,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +55,8 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
 ]
 
+SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'agency.urls'
@@ -151,3 +160,12 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.TemplateHTMLRenderer'
     ]
 }
+
+USE_I18N = True
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('ru', gettext('Russia')),
+    ('en', gettext('English')),
+    # ('kgz', gettext('Kyrgyz')),
+)

@@ -39,7 +39,7 @@ class ProjectListAPIView(generics.ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectListSerializer
 
-    search_fields = ['title', 'description']
+    search_fields = ['title_en', 'title_ru', 'description_en', 'description_ru']
 
 
 class ProjectDetailAPIView(APIView):
