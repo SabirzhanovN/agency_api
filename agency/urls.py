@@ -26,5 +26,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('pages/', include('django.contrib.flatpages.urls')),
-    path('agency_api/', include('agency_api.urls')),
+    path('api/v1/', include('agency_api.urls')),
 )

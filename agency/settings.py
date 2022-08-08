@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -163,7 +163,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-USE_I18N = True
 
 gettext = lambda s: s
 LANGUAGES = (
