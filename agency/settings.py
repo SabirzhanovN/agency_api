@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_filters',
     'rest_framework_swagger',
+    'corsheaders',
 ]
 
 SITE_ID = 1
@@ -55,6 +56,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -184,3 +186,8 @@ LOCALE_PATHS = (
 )
 
 django_heroku.settings(locals())
+
+CORS_ORIGIN_WHITELIST = [
+    "https://localhost:8000",
+    "https://127.0.0.1:8000"
+]
