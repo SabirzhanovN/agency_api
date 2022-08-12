@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'modeltranslation',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -48,13 +49,13 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_filters',
     'rest_framework_swagger',
-    'corsheaders',
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,9 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'django.middleware.locale.LocaleMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -187,7 +186,9 @@ LOCALE_PATHS = (
 
 django_heroku.settings(locals())
 
-CORS_ORIGIN_WHITELIST = [
-    "https://localhost:8000",
-    "https://127.0.0.1:8000"
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
+# [
+#     'https://localhost:8000',
+#     'https://127.0.0.1:8000'
+# ]
